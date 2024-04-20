@@ -98,37 +98,37 @@ def check():
     }
     return jsonify(data)
 
-@app.route('/check-post',methods=['POST'])
-def check_post():
-    if request.method == 'POST':
-        Name = request.json['name']
-        return jsonify(Name)
-    else:
-        S="something went wrong!"
-        return jsonify(S)
+# @app.route('/check-post',methods=['POST'])
+# def check_post():
+#     if request.method == 'POST':
+#         Name = request.json['name']
+#         return jsonify(Name)
+#     else:
+#         S="something went wrong!"
+#         return jsonify(S)
 
-@app.route('/disease-predict', methods=['POST'])
-def disease_prediction():
-    if request.method == 'POST':
-        file = request.files['file']
-        try:
-            print(file)
-            img = file.read()
-            prediction = predict_image(img)
-            prediction = disease_dic[prediction]
-            return jsonify(prediction)
-        except Exception  as e:
-            print('hello')
-            print(str(e))
-            err={
-                "err":"something went wrong!"
-            }
-            return err
-    else:
-        s={
-            "err":"oops!!"
-        }
-        return jsonify(s)
+# @app.route('/disease-predict', methods=['POST'])
+# def disease_prediction():
+#     if request.method == 'POST':
+#         file = request.files['file']
+#         try:
+#             print(file)
+#             img = file.read()
+#             prediction = predict_image(img)
+#             prediction = disease_dic[prediction]
+#             return jsonify(prediction)
+#         except Exception  as e:
+#             print('hello')
+#             print(str(e))
+#             err={
+#                 "err":"something went wrong!"
+#             }
+#             return err
+#     else:
+#         s={
+#             "err":"oops!!"
+#         }
+#         return jsonify(s)
     
 @ app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
@@ -153,4 +153,4 @@ def crop_prediction():
             return jsonify(ans_data)
     
 if __name__ == '__main__':
-    app.run(port=7000)
+    app.run()
