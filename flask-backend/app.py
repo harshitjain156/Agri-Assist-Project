@@ -152,5 +152,5 @@ def crop_prediction():
             ans_data="something went wrong"
             return jsonify(ans_data)
     
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
